@@ -3,6 +3,8 @@ extends Character
 export var default_acceleration: float = 10
 export var max_default_speed: float = 350
 
+export var default_jump_force: float = 450
+
 export var gravity : float = 900
 
 var velocity := Vector2.ZERO
@@ -20,3 +22,11 @@ func _handel_movement(delta):
 	var dir = int(Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	
 	velocity.x = lerp(velocity.x, max_default_speed * dir, default_acceleration * delta)
+	
+	# jump ---
+	if Input.is_action_just_pressed("jump") and ground_detected():
+		velocity.y = -default_jump_force
+
+
+func ground_detected():
+	return $GroundDetector.is_colliding()
