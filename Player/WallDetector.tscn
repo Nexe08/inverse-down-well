@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="WallDetector" type="Node2D"]
+
+[node name="Left" type="Node2D" parent="."]
+
+[node name="up" type="RayCast2D" parent="Left"]
+position = Vector2( 0, -11 )
+enabled = true
+cast_to = Vector2( -12, 0 )
+
+[node name="down" type="RayCast2D" parent="Left"]
+position = Vector2( 0, 9 )
+enabled = true
+cast_to = Vector2( -12, 0 )
+
+[node name="Right" type="Node2D" parent="."]
+
+[node name="up" type="RayCast2D" parent="Right"]
+position = Vector2( 0, -11 )
+enabled = true
+cast_to = Vector2( 12, 0 )
+
+[node name="down" type="RayCast2D" parent="Right"]
+position = Vector2( 0, 9 )
+enabled = true
+cast_to = Vector2( 12, 0 )
